@@ -92,7 +92,7 @@ POST /api/currency/convert
 
 ---
 
-## ⚠️ Tratamento de Erros
+## ⚠️ Tratamento de Erros com Middleware global
 
 * 🚫 Valores inválidos (ex.: argumentos incorretos) resultam em resposta HTTP **400 Bad Request**, com mensagens claras para facilitar o entendimento do problema.
 * ❌ Erros inesperados ou internos são capturados globalmente por um **middleware de tratamento de exceções**, que garante o retorno de uma resposta HTTP **500 Internal Server Error** padronizada e evita vazamento de detalhes sensíveis.
