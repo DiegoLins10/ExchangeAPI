@@ -100,7 +100,7 @@ POST /api/currency/convert
 
 ### 🚀 Próximos Passos
 
-* 🔗 **Integrar API oficial do Banco Central do Brasil (Bacen)** para obter taxas de câmbio oficiais e atualizadas.
+* 🔗 **Integrar API oficial do Banco Central do Brasil (Bacen)** para obter taxas de câmbio oficiais e atualizadas.  
 Fonte:
 [Bacen - Taxas de Câmbio - Dados Abertos](https://dadosabertos.bcb.gov.br/dataset/taxas-de-cambio-todos-os-boletins-diarios/resource/61318ccb-db9d-4d6c-87f5-d8013af7a401?inner_span=True)
 
