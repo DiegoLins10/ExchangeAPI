@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Exchange.Domain.Entities;
+using Exchange.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Exchange.Infrastructure.Repositories
 {
-    public class ConversionRepository
+    public class ConversionRepository : IConversionRepository
     {
         private static readonly List<ConversionRecord> _data = new();
 
