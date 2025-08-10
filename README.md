@@ -1,6 +1,6 @@
 ---
 
-# 🚀 **Exchange.API — API de Câmbio em Tempo Real**
+# 🚀 **Exchange.API — API de Câmbio em Tempo Real **
 
 ## 📖 Descrição
 
