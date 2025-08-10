@@ -1,5 +1,3 @@
----
-
 # 🚀 **Exchange.API — API de Câmbio em Tempo Real **
 
 ## 📖 Descrição
