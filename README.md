@@ -100,7 +100,7 @@ POST /api/currency/convert
 
 ## 🚀 Próximos Passos
 
-* 🔗 Implementar integração com APIs reais de taxas de câmbio.
+* 🔗 Implementar integração com APIs reais de taxas de câmbio. [Endpoint](https://dadosabertos.bcb.gov.br/dataset/taxas-de-cambio-todos-os-boletins-diarios/resource/61318ccb-db9d-4d6c-87f5-d8013af7a401?inner_span=True)
 * ⏰ Adicionar agendamento de conversões com notificação quando taxa atingir determinado valor.
 * 🔐 Implementar autenticação e autorização.
 * ✅ Adicionar testes automatizados.
