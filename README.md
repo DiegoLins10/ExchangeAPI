@@ -89,14 +89,17 @@ POST /api/currency/convert
 }
 ```
 
+
 ---
 
 ## ⚠️ Tratamento de Erros
 
-* 🚫 Valores inválidos retornam status HTTP 400 (Bad Request) com mensagem clara.
-* ❌ Erros internos retornam status HTTP 500 (Internal Server Error).
+* 🚫 Valores inválidos (ex.: argumentos incorretos) resultam em resposta HTTP **400 Bad Request**, com mensagens claras para facilitar o entendimento do problema.
+* ❌ Erros inesperados ou internos são capturados globalmente por um **middleware de tratamento de exceções**, que garante o retorno de uma resposta HTTP **500 Internal Server Error** padronizada e evita vazamento de detalhes sensíveis.
+* 💡 Esse middleware centraliza o tratamento de erros, simplificando o código dos controllers e melhorando a manutenção da aplicação.
 
 ---
+
 
 ### 🚀 Próximos Passos
 
