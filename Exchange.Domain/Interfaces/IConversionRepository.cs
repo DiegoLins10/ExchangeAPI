@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Exchange.Domain.Entities;
 
 namespace Exchange.Domain.Interfaces
 {
     public interface IConversionRepository
     {
+        Task SaveAsync(ConversionRecord record);
+        Task<IEnumerable<ConversionRecord>> GetHistoryAsync();
     }
 }
