@@ -1,3 +1,4 @@
+using Exchange.API.Middleware;
 using Exchange.Application.Interfaces;
 using Exchange.Application.UseCases.ConvertCurrency;
 using Exchange.Domain.Interfaces;
@@ -16,6 +17,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +28,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// register middleware
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 
 app.UseHttpsRedirection();
 
