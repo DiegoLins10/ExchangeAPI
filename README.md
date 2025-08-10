@@ -98,12 +98,14 @@ POST /api/currency/convert
 
 ---
 
-## 🚀 Próximos Passos
+### 🚀 Próximos Passos
 
-* 🔗 Implementar integração com APIs reais de taxas de câmbio. [API BACEN TAXAS](https://dadosabertos.bcb.gov.br/dataset/taxas-de-cambio-todos-os-boletins-diarios/resource/61318ccb-db9d-4d6c-87f5-d8013af7a401?inner_span=True)
+* 🔗 **Integrar API oficial do Banco Central do Brasil (Bacen)** para obter taxas de câmbio oficiais e atualizadas.
+  Fonte: [Bacen - Taxas de Câmbio - Dados Abertos](https://dadosabertos.bcb.gov.br/dataset/taxas-de-cambio-todos-os-boletins-diarios/resource/61318ccb-db9d-4d6c-87f5-d8013af7a401?inner_span=True)
 * ⏰ Adicionar agendamento de conversões com notificação quando taxa atingir determinado valor.
 * 🔐 Implementar autenticação e autorização.
 * ✅ Adicionar testes automatizados.
 
 ---
+
 
