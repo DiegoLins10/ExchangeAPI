@@ -26,9 +26,12 @@ Exchange.sln
 ├── Exchange.Domain/             # Entidades do domínio, interfaces e regras de negócio puras
 │   ├── Entities/
 │   └── Interfaces/
-└── Exchange.Infrastructure/     # Implementações dos repositórios, serviços externos e persistência
-    ├── Repositories/
-    └── Services/
+├── Exchange.Infrastructure/     # Implementações dos repositórios, serviços externos e persistência
+│    ├── Repositories/
+│    └── Services/
+└── Exchange.Unit.Test/     # Implementações dos testes unitarios
+    ├── Application/
+    └── API/
 ```
 
 ---
