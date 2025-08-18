@@ -30,8 +30,8 @@ Exchange.sln
 │    ├── Repositories/
 │    └── Services/
 └── Exchange.Unit.Test/     # Implementações dos testes unitarios
-    ├── Application/
-    └── API/
+     ├── Application/
+     └── API/
 ```
 
 ---
