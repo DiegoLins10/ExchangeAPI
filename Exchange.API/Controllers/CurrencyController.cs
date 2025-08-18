@@ -19,7 +19,7 @@ namespace Exchange.API.Controllers
         }
 
         [HttpPost("convert")]
-        public async Task<IActionResult> Convert(ConvertCurrencyRequest request)
+        public async Task<IActionResult> Convert([FromBody] ConvertCurrencyRequest request)
         {
             var result = await _convertCurrencyUseCase.ExecuteAsync(request);
             return Ok(result);

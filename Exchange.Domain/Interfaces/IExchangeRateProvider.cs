@@ -1,7 +1,9 @@
-﻿namespace Exchange.Domain.Interfaces
+﻿using Exchange.Domain.Entities;
+
+namespace Exchange.Domain.Interfaces
 {
     public interface IExchangeRateProvider
     {
-        Task<decimal> GetExchangeRateAsync(string fromCurrency, string toCurrency);
+        Task<ExchangeRate> GetExchangeRateAsync(string toCurrency, DateOnly DateQuotation);
     }
 }

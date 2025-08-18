@@ -29,6 +29,16 @@ namespace Exchange.API.Middleware
                 var result = JsonSerializer.Serialize(new { error = ex.Message });
                 await httpContext.Response.WriteAsync(result);
             }
+            catch (InvalidOperationException ex)
+            {
+                _logger.LogWarning(ex, "InvalidOperationException capturada");
+
+                httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                httpContext.Response.ContentType = "application/json";
+
+                var result = JsonSerializer.Serialize(new { error = ex.Message });
+                await httpContext.Response.WriteAsync(result);
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro não tratado");
@@ -36,7 +46,7 @@ namespace Exchange.API.Middleware
                 httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
                 httpContext.Response.ContentType = "application/json";
 
-                var result = JsonSerializer.Serialize(new { error = "Ocorreu um erro inesperado." });
+                var result = JsonSerializer.Serialize(new { error = $"Ocorreu um erro inesperado. {ex.Message}" });
                 await httpContext.Response.WriteAsync(result);
             }
         }

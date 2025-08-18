@@ -3,7 +3,7 @@ using Exchange.Application.Interfaces;
 using Exchange.Application.UseCases.ConvertCurrency;
 using Exchange.Domain.Interfaces;
 using Exchange.Infrastructure.Repositories;
-using Exchange.Infrastructure.Services;
+using Exchange.Infrastructure.Services.Bacen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IExchangeRateProvider, ExchangeRateProvider>();
 builder.Services.AddScoped<IConversionRepository, ConversionRepository>();
 builder.Services.AddScoped<IConvertCurrencyUseCase, ConvertCurrencyUseCase>();
+
+// Add provider http client
+builder.Services.AddHttpClient<IExchangeRateProvider, ExchangeRateProvider>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
