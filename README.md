@@ -27,11 +27,11 @@ Exchange.sln
 │   ├── Entities/
 │   └── Interfaces/
 ├── Exchange.Infrastructure/     # Implementações dos repositórios, serviços externos e persistência
-│    ├── Repositories/
-│    └── Services/
+│   ├── Repositories/
+│   └── Services/
 └── Exchange.Unit.Test/     # Implementações dos testes unitarios
-     ├── Application/
-     └── API/
+    ├── Application/
+    └── API/
 ```
 
 ---
