@@ -14,7 +14,7 @@ namespace Exchange.Infrastructure.Services.Bacen
             _httpClient = httpClient;
         }
 
-        public async Task<ExchangeRate> GetRateAsync(string currency, DateTime date)
+        public async Task<ExchangeRate> GetExchangeRateAsync(string currency, DateOnly date)
         {
             var url = $"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/" +
                       $"CotacaoMoedaDia(moeda=@moeda,dataCotacao=@dataCotacao)" +
@@ -22,7 +22,7 @@ namespace Exchange.Infrastructure.Services.Bacen
 
             var response = await _httpClient.GetFromJsonAsync<CurrencyBacenResponse>(url);
 
-            var item = response?.Value?.FirstOrDefault()
+            CurrencyItemBacen item = response?.Value?.FirstOrDefault()
                        ?? throw new InvalidOperationException("No exchange rate found.");
             
             return new ExchangeRate(

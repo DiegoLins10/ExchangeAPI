@@ -1,5 +1,6 @@
 ﻿using Exchange.Application.Interfaces;
 using Exchange.Domain.Entities;
+using Exchange.Domain.Enums;
 using Exchange.Domain.Interfaces;
 
 namespace Exchange.Application.UseCases.ConvertCurrency
@@ -17,28 +18,31 @@ namespace Exchange.Application.UseCases.ConvertCurrency
 
         public async Task<ConvertCurrencyResponse> ExecuteAsync(ConvertCurrencyRequest request)
         {
-            if (request.Amount <= 0)
+            if (request.AmountBRL <= 0)
                 throw new ArgumentException("O valor deve ser maior que zero.");
 
-            var rate = await _rateProvider.GetExchangeRateAsync(request.FromCurrency, request.ToCurrency);
-            var convertedAmount = request.Amount * rate;
+            ExchangeRate exchangeRate = await _rateProvider.GetExchangeRateAsync(request.ToCurrency, request.DateQuotation);
+
+            decimal exchangeParity = request.ExchangeType == ExchangeQuotationEnum.Buy ? exchangeRate.BuyRate : exchangeRate.SellRate;
+
+            decimal convertedAmount = request.AmountBRL / exchangeParity;
 
             var record = new ConversionRecord(
-                request.FromCurrency,
+                "BRL",
                 request.ToCurrency,
-                request.Amount,
+                request.AmountBRL,
                 convertedAmount,
-                rate
+                exchangeParity
             );
 
             await _repository.SaveAsync(record);
 
             return new ConvertCurrencyResponse(
-                request.Amount,
-                request.FromCurrency,
-                convertedAmount,
+                request.AmountBRL,
+                "BRL",
+                Math.Round(convertedAmount, 2),
                 request.ToCurrency,
-                rate
+                Math.Round(exchangeParity, 2)
             );
         }
     }
