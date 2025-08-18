@@ -1,6 +1,5 @@
 ﻿using Exchange.Application.Interfaces;
 using Exchange.Application.UseCases.ConvertCurrency;
-using Exchange.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exchange.API.Controllers
@@ -10,12 +9,12 @@ namespace Exchange.API.Controllers
     public class CurrencyController : ControllerBase
     {
         private readonly IConvertCurrencyUseCase _convertCurrencyUseCase;
-        private readonly IConversionRepository _repository;
+        private readonly IGetConversionHistoryUseCase _getConversionHistoryUseCase;
 
-        public CurrencyController(IConvertCurrencyUseCase convertCurrencyUseCase, IConversionRepository repository)
+        public CurrencyController(IConvertCurrencyUseCase convertCurrencyUseCase, IGetConversionHistoryUseCase getConversionHistoryUseCase)
         {
             _convertCurrencyUseCase = convertCurrencyUseCase;
-            _repository = repository;
+            _getConversionHistoryUseCase = getConversionHistoryUseCase;
         }
 
         [HttpPost("convert")]
@@ -28,7 +27,7 @@ namespace Exchange.API.Controllers
         [HttpGet("history")]
         public async Task<IActionResult> GetHistory()
         {
-            var history = await _repository.GetHistoryAsync();
+            var history = await _getConversionHistoryUseCase.ExecuteAsync();
             return Ok(history);
         }
     }

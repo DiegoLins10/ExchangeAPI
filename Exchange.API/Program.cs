@@ -1,6 +1,7 @@
 using Exchange.API.Middleware;
 using Exchange.Application.Interfaces;
 using Exchange.Application.UseCases.ConvertCurrency;
+using Exchange.Application.UseCases.GetConversionHistory;
 using Exchange.Domain.Interfaces;
 using Exchange.Infrastructure.Repositories;
 using Exchange.Infrastructure.Services.Bacen;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IExchangeRateProvider, ExchangeRateProvider>();
 builder.Services.AddScoped<IConversionRepository, ConversionRepository>();
 builder.Services.AddScoped<IConvertCurrencyUseCase, ConvertCurrencyUseCase>();
+builder.Services.AddScoped<IGetConversionHistoryUseCase, GetConversionHistoryUseCase>();
 
 // Add provider http client
 builder.Services.AddHttpClient<IExchangeRateProvider, ExchangeRateProvider>();
