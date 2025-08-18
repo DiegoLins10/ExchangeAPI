@@ -6,9 +6,9 @@ API RESTful desenvolvida em .NET para conversão de moedas em tempo real, constr
 
 A API suporta:
 
-* 💱 Conversão de valores entre diferentes moedas usando taxas de câmbio simuladas (fictícias).
+* 💱 Conversão de valores entre diferentes moedas usando taxas de câmbio do Banco central brasileiro.
 * 📜 Histórico de conversões realizadas para consulta.
-* 🔧 Extensibilidade para futuras integrações com APIs reais de câmbio, agendamento de conversões e notificações.
+* 🔧 Extensibilidade para futuras integrações com  APIs de câmbio de outras instituições, agendamento de conversões e notificações.
 
 ---
 
@@ -69,9 +69,10 @@ Exchange.sln
 ```json
 POST /api/currency/convert
 {
-  "fromCurrency": "USD",
-  "toCurrency": "BRL",
-  "amount": 100.0
+  "toCurrency": "EUR",
+  "amountBRL": 1000,
+  "dateQuotation": "2025-08-13",
+  "exchangeType": 1
 }
 ```
 
@@ -81,11 +82,11 @@ POST /api/currency/convert
 
 ```json
 {
-  "originalAmount": 100.0,
-  "fromCurrency": "USD",
-  "convertedAmount": 520.0,
-  "toCurrency": "BRL",
-  "exchangeRate": 5.2
+    "originalAmount": 1000,
+    "fromCurrency": "BRL",
+    "convertedAmount": 158.75,
+    "toCurrency": "EUR",
+    "exchangeRate": 6.30
 }
 ```
 
@@ -103,13 +104,13 @@ POST /api/currency/convert
 
 ### 🚀 Próximos Passos
 
-* 🔗 **Integrar API oficial do Banco Central do Brasil (Bacen)** para obter taxas de câmbio oficiais e atualizadas.  
+* (✅ DONE) 🔗 **Integrar API oficial do Banco Central do Brasil (Bacen)** para obter taxas de câmbio oficiais e atualizadas.  
 Fonte:
 [Bacen - Taxas de Câmbio - Dados Abertos](https://dadosabertos.bcb.gov.br/dataset/taxas-de-cambio-todos-os-boletins-diarios/resource/61318ccb-db9d-4d6c-87f5-d8013af7a401?inner_span=True)  
 Exemplo: [Bacen - Exemplo de busca](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoMoedaDia#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MSwibW9lZGEiOiJFVVIiLCJkYXRhQ290YWNhbyI6IjA4LTE1LTIwMjUifSwicGVzcXVpc2FkbyI6dHJ1ZSwiYWN0aXZlVGFiIjoiZGFkb3MiLCJncmlkU3RhdGUiOnsDMAM6W3sDQgMiBDAEIiwDQQN9LHsDQgMiBDEEIiwDQQN9LHsDQgMiBDIEIiwDQQN9LHsDQgMiBDMEIiwDQQN9LHsDQgMiBDQEIiwDQQN9LHsDQgMiBDUEIiwDQQN9XSwDMQM6e30sAzIDOltdLAMzAzp7fSwDNAM6e30sAzUDOnt9fSwicGl2b3RPcHRpb25zIjp7A2EDOnt9LANiAzpbXSwDYwM6NTAwLANkAzpbXSwDZQM6W10sA2YDOltdLANnAzoia2V5X2FfdG9feiIsA2gDOiJrZXlfYV90b196IiwDaQM6e30sA2oDOnt9LANrAzo4NSwDbAM6ZmFsc2UsA20DOnt9LANuAzp7fSwDbwM6IkNvbnRhZ2VtIiwDcAM6IlRhYmxlIn19)
 * ⏰ Adicionar agendamento de conversões com notificação quando taxa atingir determinado valor.
 * 🔐 Implementar autenticação e autorização.
-* ✅ Adicionar testes automatizados.
+* (✅ DONE) Adicionar testes automatizados.
 
 ---
 
