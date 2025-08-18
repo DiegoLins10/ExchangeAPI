@@ -29,7 +29,7 @@ Exchange.sln
 ├── Exchange.Infrastructure/     # Implementações dos repositórios, serviços externos e persistência
 │   ├── Repositories/
 │   └── Services/
-└── Exchange.Unit.Test/     # Implementações dos testes unitarios
+└── Exchange.Unit.Test/          # Implementações dos testes unitarios
     ├── Application/
     └── API/
 ```
