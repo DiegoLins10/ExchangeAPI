@@ -1,6 +1,7 @@
 ﻿using Exchange.Application.UseCases.GetConversionHistory;
 using Exchange.Domain.Entities;
 using Exchange.Domain.Interfaces;
+using Microsoft.Extensions.Caching.Memory;
 using Moq;
 using Xunit;
 
@@ -10,11 +11,16 @@ namespace Exchange.Unit.Tests.Application.UseCases
     {
         private readonly Mock<IConversionRepository> _repositoryMock;
         private readonly GetConversionHistoryUseCase _useCase;
+        private readonly IMemoryCache _memoryCacheMock;
+
 
         public GetConversionHistoryUseCaseTests()
         {
             _repositoryMock = new Mock<IConversionRepository>();
-            _useCase = new GetConversionHistoryUseCase(_repositoryMock.Object);
+            _memoryCacheMock = new MemoryCache(new MemoryCacheOptions());
+
+            // Instancia o use case com os dois mocks
+            _useCase = new GetConversionHistoryUseCase(_repositoryMock.Object, _memoryCacheMock);
         }
 
         [Fact]
