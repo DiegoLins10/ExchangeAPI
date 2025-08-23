@@ -19,7 +19,7 @@ namespace Exchange.Unit.Tests.Application.UseCases
             _repositoryMock = new Mock<IConversionRepository>();
             _memoryCacheMock = new MemoryCache(new MemoryCacheOptions());
 
-            // Instancia o use case com os dois mocks
+            // Instancia o use case com os dois mock
             _useCase = new GetConversionHistoryUseCase(_repositoryMock.Object, _memoryCacheMock);
         }
 
