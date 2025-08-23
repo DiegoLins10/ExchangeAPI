@@ -42,6 +42,7 @@ Exchange.sln
 * Clean Architecture
 * Domain-Driven Design (DDD)
 * ASP.NET Core Web API
+* Memory cachê
 * Injeção de Dependência
 * Middlewares para tratamento global de erros
 
