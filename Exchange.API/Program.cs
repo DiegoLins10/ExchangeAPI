@@ -3,10 +3,17 @@ using Exchange.Application.Interfaces;
 using Exchange.Application.UseCases.ConvertCurrency;
 using Exchange.Application.UseCases.GetConversionHistory;
 using Exchange.Domain.Interfaces;
+using Exchange.Infrastructure.Persistences;
 using Exchange.Infrastructure.Repositories;
 using Exchange.Infrastructure.Services.Bacen;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+// add database
+builder.Services.AddDbContext<ExchangeDbContext>(options =>
+    options.UseInMemoryDatabase("ExchangeDb"));
 
 // Add services to the container.
 builder.Services.AddScoped<IExchangeRateProvider, ExchangeRateProvider>();
@@ -17,6 +24,8 @@ builder.Services.AddScoped<IGetConversionHistoryUseCase, GetConversionHistoryUse
 // Add provider http client
 builder.Services.AddHttpClient<IExchangeRateProvider, ExchangeRateProvider>();
 
+// add memory cache
+builder.Services.AddMemoryCache();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

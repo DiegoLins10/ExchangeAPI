@@ -1,26 +1,30 @@
 ﻿using Exchange.Domain.Entities;
 using Exchange.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Exchange.Infrastructure.Persistences;
+using Microsoft.EntityFrameworkCore;
 
 namespace Exchange.Infrastructure.Repositories
 {
     public class ConversionRepository : IConversionRepository
     {
-        private static readonly List<ConversionRecord> _data = new();
+        private readonly ExchangeDbContext _context;
 
-        public Task SaveAsync(ConversionRecord record)
+        public ConversionRepository(ExchangeDbContext context)
         {
-            _data.Add(record);
-            return Task.CompletedTask;
+            _context = context;
         }
 
-        public Task<IEnumerable<ConversionRecord>> GetHistoryAsync()
+        public async Task SaveAsync(ConversionRecord record)
         {
-            return Task.FromResult(_data.AsEnumerable());
+            await _context.ConversionRecords.AddAsync(record);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<ConversionRecord>> GetHistoryAsync()
+        {
+            return await _context.ConversionRecords
+                                 .OrderByDescending(c => c.ConversionDate) // exemplo de ordenação
+                                 .ToListAsync();
         }
     }
 }
