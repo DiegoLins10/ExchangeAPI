@@ -23,6 +23,11 @@ namespace Exchange.Application.UseCases.GetConversionHistory
 
         public async Task<IEnumerable<ConversionRecord>> ExecuteAsync()
         {
+
+            // obs. Não utilizar directionary como cache, ele não é thread-safe
+            // Dictionary → não é seguro pra concorrência (precisa de ConcurrentDictionary ou lock)
+            // MemoryCache → já é seguro pra multithread.
+
             // tenta pegar do cache
             if (_memoryCache.TryGetValue(CacheKey, out IEnumerable<ConversionRecord> cachedHistory))
             {
