@@ -7,7 +7,7 @@ API RESTful desenvolvida em .NET para conversão de moedas em tempo real, constr
 A API suporta:
 
 * 💱 Conversão de valores entre diferentes moedas usando taxas de câmbio do Banco central brasileiro.
-* 📜 Histórico de conversões realizadas para consulta.
+* 📜 Histórico de conversões realizadas para consulta com cachê para performance.
 * 🔧 Extensibilidade para futuras integrações com  APIs de câmbio de outras instituições, agendamento de conversões e notificações.
 
 ---
