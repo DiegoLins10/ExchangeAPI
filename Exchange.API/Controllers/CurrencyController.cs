@@ -1,5 +1,5 @@
-﻿using Exchange.Application.Interfaces;
-using Exchange.Application.UseCases.ConvertCurrency;
+﻿using Exchange.Application.Dtos.Requests;
+using Exchange.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exchange.API.Controllers

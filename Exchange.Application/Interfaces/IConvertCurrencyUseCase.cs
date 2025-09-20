@@ -1,4 +1,5 @@
-﻿using Exchange.Application.UseCases.ConvertCurrency;
+﻿using Exchange.Application.Dtos.Requests;
+using Exchange.Application.Dtos.Responses;
 
 namespace Exchange.Application.Interfaces
 {
