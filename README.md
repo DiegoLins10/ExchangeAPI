@@ -22,6 +22,7 @@ Exchange.sln
 │   └── Program.cs
 ├── Exchange.Application/        # Casos de uso, interfaces e lógica de aplicação
 │   ├── Interfaces/
+    ├── Dtos/
 │   └── UseCases/
 ├── Exchange.Domain/             # Entidades do domínio, interfaces e regras de negócio puras
 │   ├── Entities/
@@ -65,13 +66,24 @@ Exchange.sln
 | ------ | ----------------------- | --------------------------------------------- |
 | POST   | `/api/currency/convert` | Converte um valor de uma moeda para outra.    |
 | GET    | `/api/currency/history` | Retorna o histórico de conversões realizadas. |
+| POST    | `/api/authentication/token` | Gera um token JWT para autenticação do cliente usando `client_id` e `secret`. Esse token deve ser usado para acessar endpoints protegidos da API. |
 
 ---
 
+
 ## 📄 Exemplo de Requisição
 
+**POST** `/api/currency/convert`
+**Headers:**
+
+```
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+```
+
+**Body:**
+
 ```json
-POST /api/currency/convert
 {
   "toCurrency": "EUR",
   "amountBRL": 1000,
@@ -94,6 +106,21 @@ POST /api/currency/convert
 }
 ```
 
+---
+
+💡 Observações:
+
+1. `Authorization: Bearer {{access_token}}` → o token deve ser obtido no endpoint de autenticação (`/api/authentication/token`).
+2. `Content-Type: application/json` → necessário para que a API interprete corretamente o JSON.
+3. `exchangeType` → pode ser usado para diferenciar tipos de câmbio (ex.: comercial, turismo).
+
+---
+## 🔑 Utilizando a API com ClientId e Secret de Teste
+
+Para testar a API, você pode usar os seguintes valores fixos para se autenticar:
+
+* **client_id:** `3f29b6e7-1c4b-4f9a-b8b4-2f5e2f4d5c6a`
+* **secret:** `f8d9a7b6-2c3e-4f7a-8b1d-3e2f4a5b6c7d`
 
 ---
 
@@ -113,7 +140,7 @@ Fonte:
 [Bacen - Taxas de Câmbio - Dados Abertos](https://dadosabertos.bcb.gov.br/dataset/taxas-de-cambio-todos-os-boletins-diarios/resource/61318ccb-db9d-4d6c-87f5-d8013af7a401?inner_span=True)  
 Exemplo: [Bacen - Exemplo de busca](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoMoedaDia#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MSwibW9lZGEiOiJFVVIiLCJkYXRhQ290YWNhbyI6IjA4LTE1LTIwMjUifSwicGVzcXVpc2FkbyI6dHJ1ZSwiYWN0aXZlVGFiIjoiZGFkb3MiLCJncmlkU3RhdGUiOnsDMAM6W3sDQgMiBDAEIiwDQQN9LHsDQgMiBDEEIiwDQQN9LHsDQgMiBDIEIiwDQQN9LHsDQgMiBDMEIiwDQQN9LHsDQgMiBDQEIiwDQQN9LHsDQgMiBDUEIiwDQQN9XSwDMQM6e30sAzIDOltdLAMzAzp7fSwDNAM6e30sAzUDOnt9fSwicGl2b3RPcHRpb25zIjp7A2EDOnt9LANiAzpbXSwDYwM6NTAwLANkAzpbXSwDZQM6W10sA2YDOltdLANnAzoia2V5X2FfdG9feiIsA2gDOiJrZXlfYV90b196IiwDaQM6e30sA2oDOnt9LANrAzo4NSwDbAM6ZmFsc2UsA20DOnt9LANuAzp7fSwDbwM6IkNvbnRhZ2VtIiwDcAM6IlRhYmxlIn19)
 * ⏰ Adicionar agendamento de conversões com notificação quando taxa atingir determinado valor.
-* 🔐 Implementar autenticação e autorização.
+* (✅ DONE) 🔐 Implementar autenticação e autorização.
 * (✅ DONE) Adicionar testes automatizados.
 
 ---

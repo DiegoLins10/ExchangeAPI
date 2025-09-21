@@ -1,4 +1,6 @@
-﻿using Exchange.Application.Interfaces;
+﻿using Exchange.Application.Dtos.Requests;
+using Exchange.Application.Dtos.Responses;
+using Exchange.Application.Interfaces;
 using Exchange.Domain.Entities;
 using Exchange.Domain.Enums;
 using Exchange.Domain.Interfaces;

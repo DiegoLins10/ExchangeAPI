@@ -3,9 +3,8 @@ using Exchange.Application.Dtos.Responses;
 
 namespace Exchange.Application.Interfaces
 {
-    public interface IConvertCurrencyUseCase
+    public interface IAuthenticateClientUseCase
     {
-        Task<ConvertCurrencyResponse> ExecuteAsync(ConvertCurrencyRequest request);
-
+        Task<AuthResponse> ExecuteAsync(AuthRequest request);
     }
 }
