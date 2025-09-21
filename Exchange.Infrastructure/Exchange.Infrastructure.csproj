@@ -8,9 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.9" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Exchange.Application\Exchange.Application.csproj" />
     <ProjectReference Include="..\Exchange.Domain\Exchange.Domain.csproj" />
   </ItemGroup>
 

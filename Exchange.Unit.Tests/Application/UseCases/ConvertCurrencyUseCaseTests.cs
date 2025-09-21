@@ -1,4 +1,5 @@
-﻿using Exchange.Application.UseCases.ConvertCurrency;
+﻿using Exchange.Application.Dtos.Requests;
+using Exchange.Application.UseCases.ConvertCurrency;
 using Exchange.Domain.Entities;
 using Exchange.Domain.Enums;
 using Exchange.Domain.Interfaces;
