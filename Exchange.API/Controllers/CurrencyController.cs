@@ -1,9 +1,11 @@
 ﻿using Exchange.Application.Dtos.Requests;
 using Exchange.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exchange.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/currency")]
     public class CurrencyController : ControllerBase
