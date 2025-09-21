@@ -117,10 +117,10 @@ Content-Type: application/json
 ---
 ## 🔑 Utilizando a API com ClientId e Secret de Teste
 
-Para testar a API, você pode usar os seguintes valores fixos:
+Para testar a API, você pode usar os seguintes valores fixos para se autenticar:
 
-* **ClientId:** `3f29b6e7-1c4b-4f9a-b8b4-2f5e2f4d5c6a`
-* **Secret:** `f8d9a7b6-2c3e-4f7a-8b1d-3e2f4a5b6c7d`
+* **client_id:** `3f29b6e7-1c4b-4f9a-b8b4-2f5e2f4d5c6a`
+* **secret:** `f8d9a7b6-2c3e-4f7a-8b1d-3e2f4a5b6c7d`
 
 ---
 
