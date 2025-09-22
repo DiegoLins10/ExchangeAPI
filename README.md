@@ -142,7 +142,7 @@ Exemplo: [Bacen - Exemplo de busca](https://olinda.bcb.gov.br/olinda/servico/PTA
 * ⏰ Adicionar agendamento de conversões com notificação quando taxa atingir determinado valor.
 * (✅ DONE) 🔐 Implementar autenticação e autorização.
 * (✅ DONE) Adicionar testes automatizados.
-
+* Adicionar result pattern ao projeto 
 ---
 
 
