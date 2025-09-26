@@ -151,7 +151,7 @@ Exemplo: [Bacen - Exemplo de busca](https://olinda.bcb.gov.br/olinda/servico/PTA
 
 ---
 
-### ✨ Made with ❤️ and ☕ by Diego Lins ✨
+### ✨ Made with ❤️ and ☕ by Diego Fernandes Lins ✨
 
 
 
