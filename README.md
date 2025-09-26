@@ -145,10 +145,13 @@ Exemplo: [Bacen - Exemplo de busca](https://olinda.bcb.gov.br/olinda/servico/PTA
 * [ ] ☁️🚀 **Implantar na AWS**
 * [ ] ⏰ **Adicionar agendamento de conversões** com notificação quando taxa atingir determinado valor.
 
+### ***Indicadores de Conclusão***
  * [ ] = tarefa pendente.  
  * [x] = tarefa concluída
 
 ---
+
+### ✨ Made with ❤️ and ☕ by Diego Lins ✨
 
 
 
