@@ -63,7 +63,7 @@ docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/exchange-api:latest
 
    * Nome: `exchange-api`
    * Imagem: URL do ECR (`<AWS_ID>.dkr.ecr.us-east-1.amazonaws.com/exchange-api:latest`)
-   * Porta: `8080` (se sua aplicação escuta em 8080)
+   * Porta: `8080` (se sua aplicação container escuta em 8080)
 5. Salvar
 
 ---
