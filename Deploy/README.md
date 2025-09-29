@@ -82,7 +82,7 @@ docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/exchange-api:latest
    * Security Group: **⚠️ configurar inbound e outbound**
 
      * Inbound: permitir porta **80** (para ALB ou acesso direto)
-     * Inbound: permitir porta **8080** se ALB estiver escutando nessa porta
+     * Inbound: permitir porta de saida **8080** se ALB estiver enviando para o container nessa porta
      * Outbound: liberar acesso **0.0.0.0/0** (para saída geral)
 7. Load Balancer:
 
