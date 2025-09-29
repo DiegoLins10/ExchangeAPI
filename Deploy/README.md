@@ -21,7 +21,7 @@ aws ecr get-login-password --region us-east-1 | docker login --username AWS --pa
 
 ---
 
-## 📦 2. Criar repositório no ECR
+## 📦 2. Criar repositório no ECR (necessario apenas na primeira vez)
 
 ```sh
 aws ecr create-repository --repository-name exchange-api
