@@ -165,3 +165,56 @@ Cliente (Browser / Postman)
 
 ---
 
+## 💰 Checklist de custos ECS + ALB
+
+### 1️⃣ ECS Cluster
+
+* **Custo:** ❌ nenhum
+* **Observação:** É só um agrupamento lógico, vazio não cobra nada.
+
+### 2️⃣ ECS Task (Fargate)
+
+* **Custo:** ✅ cobra por vCPU e memória por hora enquanto estiver rodando.
+* **Dica:** Se for teste, **pare ou delete a task** quando não estiver usando.
+
+### 3️⃣ ECS Service
+
+* **Custo:** ✅ cobra se estiver mantendo Tasks ativas.
+* **Dica:** Delete o service se não precisar de scaling automático ou tasks rodando.
+
+### 4️⃣ Load Balancer (ALB/NLB)
+
+* **Custo:** ✅ cobra **por hora** + **LCU (Load Balancer Capacity Unit)**.
+* **Dica:** Se só era pra teste, delete o ALB e o target group quando não precisar.
+
+### 5️⃣ Target Groups
+
+* **Custo:** ❌ não gera custo direto, mas se estiver ligado ao ALB, o ALB sim.
+
+### 6️⃣ Subnets / Security Groups
+
+* **Custo:** ❌ normalmente gratuito (a não ser que haja NAT Gateway ligado).
+
+### 7️⃣ NAT Gateway
+
+* **Custo:** ✅ cobra por hora + GB transferido.
+* **Dica:** Não é necessário se sua API está pública com ALB.
+
+### 8️⃣ Imagens no ECR
+
+* **Custo:** ✅ cobra por GB armazenado.
+* **Dica:** Delete imagens antigas que não vai usar.
+
+### 9️⃣ CloudWatch / Logs
+
+* **Custo:** ✅ cobra por GB armazenado + métricas custom.
+* **Dica:** Configure retenção curta pra logs de teste.
+
+---
+
+💡 **Resumo:**
+Se você só criou o **cluster** sem tasks ou ALB ativo → zero custo.
+Se houver **tasks Fargate, ALB ou NAT Gateway** → começa a gerar custos.
+
+
+
