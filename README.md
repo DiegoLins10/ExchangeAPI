@@ -132,6 +132,35 @@ Para testar a API, você pode usar os seguintes valores fixos para se autenticar
 
 ---
 
+## 🚀 Implantação no AWS ECS
+
+A aplicação foi implantada com sucesso no **AWS ECS Fargate** e está disponível através do **ALB (Application Load Balancer)**.
+
+### 🌐 Endpoint
+Você pode acessar o endpoint de autenticação pelo link abaixo:
+
+
+[http://alb-exchange-1526545477.us-east-1.elb.amazonaws.com/api/authentication/token](http://alb-exchange-1526545477.us-east-1.elb.amazonaws.com/api/authentication/token)
+
+
+### 📡 Exemplo de Requisição `POST` com `curl`
+
+```bash
+curl --location --request POST 'http://alb-exchange-1526545477.us-east-1.elb.amazonaws.com/api/authentication/token' \
+--header 'client_id: 3f29b6e7-1c4b-4f9a-b8b4-2f5e2f4d5c6a' \
+--header 'secret: f8d9a7b6-2c3e-4f7a-8b1d-3e2f4a5b6c7d'
+````
+
+### ✅ Passos realizados para a implantação
+
+1. 🔹 Build da imagem Docker localmente.
+2. 🔹 Push da imagem para o **ECR (Elastic Container Registry)**.
+3. 🔹 Configuração da **Task Definition** no ECS.
+4. 🔹 Criação do **Service** com integração ao **ALB**.
+5. 🔹 Testes e validação do endpoint.
+
+> Agora a API está rodando na nuvem com alta disponibilidade e escalabilidade! 🎉
+
 
 ### 🚀 Próximos Passos
 
