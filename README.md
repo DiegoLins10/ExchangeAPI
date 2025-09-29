@@ -171,7 +171,7 @@ Exemplo: [Bacen - Exemplo de busca](https://olinda.bcb.gov.br/olinda/servico/PTA
 * [x] ✅🔐 **Implementar autenticação e autorização** (DONE).
 * [x] ✅🧪 **Adicionar testes automatizados** (DONE).
 * [ ] 🧩 **Adicionar result pattern ao projeto**
-* [ ] ☁️🚀 **Implantar na AWS**
+* [x] ☁️🚀 **Implantar na AWS**
 * [ ] ⏰ **Adicionar agendamento de conversões** com notificação quando taxa atingir determinado valor.
 
 ### ***Indicadores de Conclusão***
