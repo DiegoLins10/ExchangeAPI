@@ -21,6 +21,6 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # Expõe a porta dentro do container
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "Exchange.API.dll"]

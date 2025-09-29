@@ -1,0 +1,14 @@
+# Login no ECR
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
+
+# Criar repositório no ECR (só precisa fazer uma vez)
+aws ecr create-repository --repository-name exchange-api
+
+# Build da imagem local
+docker build -t exchange-api -f Exchange.API/Dockerfile .
+
+# Tag da imagem para o ECR
+docker tag exchange-api:latest <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/exchange-api:latest
+
+# Push da imagem para o ECR
+docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/exchange-api:latest
